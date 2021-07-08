@@ -1,0 +1,46 @@
+main > form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  & > div {
+    // border: 1px solid black;
+    // padding: 10px;
+  }
+}
+
+label {
+  & > input {
+    margin: 5px 0 23px;
+    width: 194px;
+  }
+}
+table {
+  width: 200px;
+  margin-top: 5px;
+  td,
+  th {
+    height: 20px;
+  }
+  & label {
+    width: 100%;
+    height: 100%;
+  }
+}
+input {
+  position: relative;
+  display: block;
+}
+
+td:nth-child(2) {
+  padding-left: 10px;
+  padding: 0 10px;
+  width: 90%;
+}
+a {
+  display: block;
+  margin: 0 auto;
+}
+a > button {
+  margin: auto;
+  margin-top: 10px;
+}

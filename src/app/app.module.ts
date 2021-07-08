@@ -8,9 +8,15 @@ import { ListComponent } from './components/list/list.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { NewLeadComponent } from './components/new-lead/new-lead.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ListComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    ListComponent,
+    NewLeadComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

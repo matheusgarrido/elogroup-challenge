@@ -1,9 +1,11 @@
 <app-header></app-header>
 <main>
   <h3>Painel de Leads</h3>
-  <button mat-raised-button color="primary" id="btn-addlead">
-    Novo Lead (+)
-  </button>
+  <a routerLink="novo">
+    <button mat-raised-button color="primary" id="btn-addlead">
+      Novo Lead (+)
+    </button>
+  </a>
   <div id="table-leads">
     <table>
       <thead>
