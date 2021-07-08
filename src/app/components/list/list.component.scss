@@ -1,0 +1,52 @@
+main {
+  width: 80%;
+  margin: auto;
+}
+
+h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+div#lead-list {
+  display: block;
+  height: 35vw;
+}
+table {
+  overflow: auto;
+}
+
+#btn-addlead {
+  display: block;
+  align-self: right;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+div#table-leads {
+  overflow: auto;
+  height: 70vh;
+  margin: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+  & tr:nth-child(2n-1) {
+    background-color: lightgray;
+  }
+}
+th,
+td {
+  padding: 15px 15px;
+  border: 1px solid black;
+}
+th {
+  background-color: gray;
+  color: white;
+  font-weight: normal;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  user-select: none;
+}
