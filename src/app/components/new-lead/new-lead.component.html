@@ -1,19 +1,19 @@
 <app-header></app-header>
 <main>
   <h3>Novo Lead</h3>
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div>
       <label>
         Nome *
-        <input type="text" />
+        <input formControlName="name" type="text" />
       </label>
       <label>
         Telefone *
-        <input type="text" />
+        <input formControlName="phone" type="tel" />
       </label>
       <label>
         E-mail *
-        <input type="text" />
+        <input formControlName="email" />
       </label>
     </div>
     <div>
@@ -28,12 +28,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of opportunities; let i = index">
+          <tr
+            *ngFor="let item of opportunities; let i = index"
+            formArrayName="opportunities"
+          >
             <td>
               <input
                 type="checkbox"
                 id="ckb{{ i }}"
-                (change)="verifyChecks()"
+                (change)="(VerifyChecks)"
+                [formControlName]="i"
               />
             </td>
             <td>
@@ -42,12 +46,17 @@
           </tr>
         </tbody>
       </table>
-
-      <a routerLink="">
-        <button mat-raised-button color="primary" id="btn-save" type="submit">
+      <span class="btn">
+        <button
+          mat-raised-button
+          color="primary"
+          id="btn-save"
+          type="submit"
+          [disabled]="form.status === 'INVALID' || !VerifyHasChecked"
+        >
           Salvar
         </button>
-      </a>
+      </span>
     </div>
   </form>
   <a routerLink="" id="finish">
