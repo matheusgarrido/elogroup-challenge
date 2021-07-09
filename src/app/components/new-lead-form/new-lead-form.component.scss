@@ -1,4 +1,4 @@
-main > form {
+form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -36,7 +36,6 @@ td:nth-child(2) {
   padding: 0 10px;
   width: 90%;
 }
-a,
 span.btn {
   margin: 0 auto;
   & > button {
