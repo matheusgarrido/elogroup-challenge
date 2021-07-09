@@ -11,16 +11,13 @@ export class NewLeadComponent {
 
   form = new FormGroup({
     name: new FormControl('', Validators.required),
-    phone: new FormControl('12345678', [
+    phone: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(15),
       Validators.pattern('[- +()0-9]+'),
     ]),
-    email: new FormControl('matheusgarrido10@gmail.com', [
-      Validators.required,
-      Validators.email,
-    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     opportunities: new FormArray(
       this.opportunities.map((opportunity) => {
         return new FormControl(false);
