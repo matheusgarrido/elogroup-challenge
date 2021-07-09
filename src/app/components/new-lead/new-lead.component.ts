@@ -79,6 +79,11 @@ export class NewLeadComponent {
       opportunities,
     };
     alert(`Formulário a ser salvo: ${JSON.stringify(formValue)}`);
+    this.resetForm();
+  }
+
+  resetForm() {
     this.form.reset();
+    this.onChangeCheckAll(false);
   }
 }
