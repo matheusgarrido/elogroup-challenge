@@ -1,0 +1,58 @@
+div#container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 10fr 80fr 10fr;
+  grid-template-rows: 25fr 50fr 25fr;
+  background-color: lightgray;
+}
+form {
+  grid-row: 2;
+  grid-column: 2;
+  height: max-content;
+  max-height: 85vh;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-bottom: 15px;
+  margin: 0 auto auto;
+  background-color: white;
+  overflow: auto;
+  & > div {
+    width: min-content;
+    margin: auto;
+    padding-top: 10px;
+  }
+}
+
+label {
+  margin: auto;
+  width: 100%;
+  & > mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    float: right;
+    margin-right: 5px;
+    user-select: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+input {
+  display: block;
+  margin-bottom: 10px;
+  width: 150px;
+}
+p {
+  font-size: 9px;
+  font-weight: bold;
+  color: red;
+  word-wrap: break-word;
+  margin-top: -10px;
+}
+span.btn {
+  margin: auto;
+}
