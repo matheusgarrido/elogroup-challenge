@@ -1,9 +1,0 @@
-@import "../../../styles.scss";
-header > #logo-header {
-  background-color: $primaryColor;
-  color: white;
-  padding: 10px 20px;
-  & > img {
-    width: 100px;
-  }
-}
