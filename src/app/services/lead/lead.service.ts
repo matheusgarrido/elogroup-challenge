@@ -18,6 +18,10 @@ export class LeadService {
     this.arrLeads = savedLeads ? JSON.parse(savedLeads) : [];
   }
 
+  get getLeads() {
+    return this.arrLeads;
+  }
+
   checkLeadPreviouslySaved(submittedForm: leadData) {
     return this.arrLeads.find(
       (element) =>
@@ -41,7 +45,11 @@ export class LeadService {
     this.arrLeads.push(submittedForm);
     this.updateLocalStorage();
   }
-
+  moveCellLead(arrLeads: leadData[]) {
+    this.arrLeads = arrLeads;
+    // console.log(this.arrLeads);
+    this.updateLocalStorage();
+  }
   updateLocalStorage() {
     localStorage.setItem('leads', JSON.stringify(this.arrLeads));
   }

@@ -8,155 +8,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Org. Internacionais</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Ind. Farm. LTDA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Musc. Sound Live Cmp</td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let row of tableController.getTables; let i = index">
+        <td *ngFor="let column of columns">
+          <div
+            id="{{ tableController.getCurrentCell(i, column, columns.length) }}"
+            class="leadDiv"
+            cdkDropList
+            (cdkDropListDropped)="tableController.drop($event, leadService)"
+            [cdkDropListData]="row[column]"
+            [cdkDropListConnectedTo]="
+              tableController.getDropConnectedTo(i, column, columns.length)
+            "
+          >
+            <div class="leadDragDrop" *ngFor="let cell of row[column]" cdkDrag>
+              <app-card-lead *ngIf="cell" [lead]="cell"></app-card-lead>
+            </div>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

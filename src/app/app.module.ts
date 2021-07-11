@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { HeaderComponent } from './components/header/header.component';
 import { ListComponent } from './views/list/list.component';
@@ -15,6 +16,7 @@ import { NewLeadComponent } from './views/new-lead/new-lead.component';
 import { NewLeadFormComponent } from './components/new-lead-form/new-lead-form.component';
 import { LeadsListComponent } from './components/leads-list/leads-list.component';
 import { AccessComponent } from './views/access/access.component';
+import { CardLeadComponent } from './components/card-lead/card-lead.component';
 
 import { AuthService } from './services/auth/auth.service';
 
@@ -27,6 +29,7 @@ import { AuthService } from './services/auth/auth.service';
     NewLeadFormComponent,
     LeadsListComponent,
     AccessComponent,
+    CardLeadComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { AuthService } from './services/auth/auth.service';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    DragDropModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

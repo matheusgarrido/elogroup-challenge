@@ -9,5 +9,18 @@ div#table-leads {
 }
 th,
 td {
+  width: 33%;
+}
+th,
+div.leadDiv {
   padding: 15px 15px;
+  min-height: 1.8em;
+}
+
+div.leadDragDrop {
+  width: 100%;
+  user-select: none;
+}
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

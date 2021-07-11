@@ -1,0 +1,14 @@
+p {
+  font-size: 12px;
+}
+#name {
+  text-align: center;
+  font-size: 14px;
+}
+mat-icon {
+  $size: 17px;
+  font-size: $size;
+  width: $size;
+  height: $size;
+  vertical-align: middle;
+}

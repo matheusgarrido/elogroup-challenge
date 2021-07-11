@@ -1,0 +1,17 @@
+<div>
+  <p id="name">
+    {{ lead.name }}
+  </p>
+  <p id="email">
+    <mat-icon> mail </mat-icon>
+    {{ lead.email }}
+  </p>
+  <p id="phone">
+    <mat-icon> phone </mat-icon>
+    {{ lead.phone }}
+  </p>
+  <p id="opportunities">
+    <mat-icon> info </mat-icon>
+    {{ lead.opportunities.join(", ") }}
+  </p>
+</div>

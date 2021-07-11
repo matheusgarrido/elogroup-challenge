@@ -83,7 +83,7 @@ export class NewLeadComponent {
       phone,
       email,
       opportunities,
-      tableColumn: 1,
+      tableColumn: 0,
     };
     return formValue;
   }
