@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { leadData } from 'src/app/services/lead/lead.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-lead',
@@ -15,5 +14,8 @@ export class CardLeadComponent {
     tableColumn: 0,
   };
 
-  constructor() {}
+  infoActive = false;
+  changeInfoActive() {
+    this.infoActive = !this.infoActive;
+  }
 }

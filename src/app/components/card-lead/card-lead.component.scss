@@ -4,6 +4,9 @@ p {
 #name {
   text-align: center;
   font-size: 14px;
+  & > mat-icon:hover {
+    cursor: pointer;
+  }
 }
 mat-icon {
   $size: 17px;
