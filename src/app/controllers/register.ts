@@ -94,7 +94,13 @@ export class Register {
     document.getElementById('passwordConfirm')?.setAttribute('type', inputType);
   }
 
+  userError = false;
   submit(registerService: RegisterService) {
-    registerService.submit(this.validate);
+    if (!registerService.verifyUserExists(this.form.value.username))
+      registerService.submit(this.validate, this.form);
+    else this.userError = true;
+  }
+  inputForm() {
+    this.userError = false;
   }
 }

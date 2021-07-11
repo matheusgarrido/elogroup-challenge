@@ -13,8 +13,11 @@ export class AuthService {
     console.log(this.userAuth);
   }
 
-  authenticate(isLoginValid: boolean) {
-    localStorage.setItem('auth', `${isLoginValid}`);
+  authenticate(isLoginValid: boolean, user: string) {
+    localStorage.setItem(
+      'auth',
+      JSON.stringify({ auth: isLoginValid, username: user })
+    );
     this.userAuth = isLoginValid;
     console.log(this.userAuth);
   }
@@ -23,7 +26,7 @@ export class AuthService {
   }
 
   logout() {
-    this.authenticate(false);
+    this.authenticate(false, '');
     this.redirectIfNotAuth();
   }
 

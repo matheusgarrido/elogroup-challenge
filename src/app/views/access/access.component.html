@@ -3,6 +3,7 @@
   <form
     [formGroup]="form"
     (submit)="registerController.submit(getRegisterService)"
+    (input)="registerController.inputForm()"
   >
     <app-header></app-header>
     <div>
@@ -10,6 +11,7 @@
         Usuário *
         <input type="text" formControlName="username" />
       </label>
+      <p *ngIf="registerController.userError">Usuário já existe</p>
       <label
         title="A senha deve possuir ao menos 8 caracteres, contendo ao menos, um caracterespecial, um caracter numérico, um caracteralfanumérico."
       >
