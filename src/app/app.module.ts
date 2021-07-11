@@ -16,6 +16,8 @@ import { NewLeadFormComponent } from './components/new-lead-form/new-lead-form.c
 import { LeadsListComponent } from './components/leads-list/leads-list.component';
 import { AccessComponent } from './views/access/access.component';
 
+import { AuthService } from './services/auth/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import { AccessComponent } from './views/access/access.component';
     MatIconModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

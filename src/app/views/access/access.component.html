@@ -1,6 +1,9 @@
 <div id="container">
   <div></div>
-  <form [formGroup]="form" (submit)="register.submit()">
+  <form
+    [formGroup]="form"
+    (submit)="registerController.submit(getRegisterService)"
+  >
     <app-header></app-header>
     <div>
       <label>
@@ -14,9 +17,10 @@
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
-          (click)="register.seePassword()"
+          (click)="registerController.seePassword()"
         >
-          <ng-container *ngIf="register.isPasswordVisible; else invisible"
+          <ng-container
+            *ngIf="registerController.isPasswordVisible; else invisible"
             >remove_red_eye</ng-container
           >
           <ng-template #invisible>visibility_off</ng-template>
@@ -24,8 +28,8 @@
         <input type="password" formControlName="password" id="password" />
       </label>
 
-      <p *ngIf="register.errorPassword">
-        {{ register.errorPassword }}
+      <p *ngIf="registerController.errorPassword">
+        {{ registerController.errorPassword }}
       </p>
       <label
         title="A senha deve possuir ao menos 8 caracteres, contendo ao menos, um caracterespecial, um caracter numérico, um caracteralfanumérico."
@@ -37,8 +41,8 @@
           id="passwordConfirm"
         />
       </label>
-      <p *ngIf="register.errorPasswordConfirm">
-        {{ register.errorPasswordConfirm }}
+      <p *ngIf="registerController.errorPasswordConfirm">
+        {{ registerController.errorPasswordConfirm }}
       </p>
     </div>
     <span class="btn">
@@ -46,7 +50,7 @@
         mat-raised-button
         color="primary"
         id="btn-save"
-        [disabled]="!register.validate"
+        [disabled]="!registerController.validate"
       >
         Registrar
       </button>

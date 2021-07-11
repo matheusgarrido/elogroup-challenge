@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Register } from '../../controllers/register';
 import { FormGroup } from '@angular/forms';
+import { Register } from '../../controllers/register';
+import { RegisterService } from '../../services/register/register.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-access',
@@ -8,6 +10,17 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./access.component.scss'],
 })
 export class AccessComponent {
-  register = new Register();
-  form: FormGroup = this.register.getForm;
+  registerController = new Register();
+  form: FormGroup = this.registerController.getForm;
+
+  constructor(
+    private authService: AuthService,
+    private registerService: RegisterService
+  ) {
+    this.authService.redirectIfAlreadyAuth();
+  }
+
+  get getRegisterService() {
+    return this.registerService;
+  }
 }

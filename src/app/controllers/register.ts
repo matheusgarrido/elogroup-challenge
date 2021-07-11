@@ -1,4 +1,5 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RegisterService } from '../services/register/register.service';
 
 export class Register {
   form = new FormGroup({
@@ -93,9 +94,7 @@ export class Register {
     document.getElementById('passwordConfirm')?.setAttribute('type', inputType);
   }
 
-  submit() {
-    if (this.validate) {
-      //ready to register user
-    }
+  submit(registerService: RegisterService) {
+    registerService.submit(this.validate);
   }
 }
