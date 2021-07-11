@@ -1,5 +1,5 @@
 <div id="table-leads">
-  <table>
+  <table *ngIf="tableController.getTables.length; else emptyLeadList">
     <thead>
       <tr>
         <th>Cliente em Potencial</th>
@@ -28,4 +28,9 @@
       </tr>
     </tbody>
   </table>
+  <ng-template #emptyLeadList>
+    <p id="emptyLeadList">
+      Não há leads cadastrados. Clique no botão acima para adicionar leads.
+    </p>
+  </ng-template>
 </div>
