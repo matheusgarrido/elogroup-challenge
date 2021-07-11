@@ -3,7 +3,7 @@ import { AuthService } from '../auth/auth.service';
 import { FormGroup } from '@angular/forms';
 import { leadData } from '../lead/lead.service';
 
-interface userData {
+export interface userData {
   username: string;
   password: string;
   leads: leadData[];

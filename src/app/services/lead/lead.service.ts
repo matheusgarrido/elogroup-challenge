@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { userData } from '../register/register.service';
 
 export interface leadData {
   name: string;
@@ -12,10 +14,19 @@ export interface leadData {
 })
 export class LeadService {
   arrLeads: leadData[] = [];
+  arrUsers: userData[] = [];
+  user = '';
 
-  constructor() {
-    const savedLeads = localStorage.getItem('leads');
-    this.arrLeads = savedLeads ? JSON.parse(savedLeads) : [];
+  constructor(authService: AuthService) {
+    const allUsers = localStorage.getItem('users');
+    if (allUsers) {
+      this.user = authService.getAuthUser;
+      const jsonUsers: userData[] = JSON.parse(allUsers);
+      this.arrUsers = jsonUsers;
+      this.arrLeads = jsonUsers.filter(
+        (element) => element.username === this.user
+      )[0].leads;
+    }
   }
 
   get getLeads() {
@@ -47,10 +58,18 @@ export class LeadService {
   }
   moveCellLead(arrLeads: leadData[]) {
     this.arrLeads = arrLeads;
-    // console.log(this.arrLeads);
     this.updateLocalStorage();
   }
   updateLocalStorage() {
-    localStorage.setItem('leads', JSON.stringify(this.arrLeads));
+    this.arrUsers = this.arrUsers.map((element) => {
+      if (element.username.toLowerCase() === this.user)
+        return {
+          username: element.username,
+          password: element.password,
+          leads: this.arrLeads,
+        };
+      return element;
+    });
+    localStorage.setItem('users', JSON.stringify(this.arrUsers));
   }
 }

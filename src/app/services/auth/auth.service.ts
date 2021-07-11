@@ -6,11 +6,15 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private userAuth = false;
+  private user = '';
 
   constructor(private router: Router) {
-    const auth = localStorage.getItem('auth');
-    if (auth) this.userAuth = auth === 'true' ? true : false;
-    console.log(this.userAuth);
+    const authSaved = localStorage.getItem('auth');
+    if (authSaved) {
+      const { auth, username } = JSON.parse(authSaved);
+      this.userAuth = auth;
+      this.user = username;
+    }
   }
 
   authenticate(isLoginValid: boolean, user: string) {
@@ -23,6 +27,9 @@ export class AuthService {
   }
   get getAuthentication() {
     return this.userAuth;
+  }
+  get getAuthUser() {
+    return this.user;
   }
 
   logout() {
