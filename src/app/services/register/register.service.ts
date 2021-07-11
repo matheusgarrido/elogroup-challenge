@@ -57,4 +57,9 @@ export class RegisterService {
     this.authService.authenticate(validation, username);
     this.authService.redirectIfAlreadyAuth();
   }
+  login(validation: boolean, form: FormGroup) {
+    const { username } = form.value;
+    this.authService.authenticate(validation, username);
+    this.authService.redirectIfAlreadyAuth();
+  }
 }

@@ -35,7 +35,7 @@ export class Login {
     const { username, password } = this.form.value;
     this.userError = !registerService.verifyLoginAccess(username, password);
     if (!this.userError) {
-      registerService.submit(this.validate, this.form);
+      registerService.login(this.validate, this.form);
     } else this.userError = true;
   }
   inputForm() {

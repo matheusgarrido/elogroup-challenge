@@ -17,10 +17,12 @@ export class LeadService {
   arrUsers: userData[] = [];
   user = '';
 
-  constructor(authService: AuthService) {
+  constructor(private authService: AuthService) {}
+
+  updateArrLeads() {
     const allUsers = localStorage.getItem('users');
+    this.user = this.authService.getAuthUser;
     if (allUsers) {
-      this.user = authService.getAuthUser;
       const jsonUsers: userData[] = JSON.parse(allUsers);
       this.arrUsers = jsonUsers;
       this.arrLeads = jsonUsers.filter(
@@ -30,6 +32,7 @@ export class LeadService {
   }
 
   get getLeads() {
+    this.updateArrLeads();
     return this.arrLeads;
   }
 

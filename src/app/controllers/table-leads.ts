@@ -4,8 +4,7 @@ import { leadData, LeadService } from 'src/app/services/lead/lead.service';
 export class TableController {
   tables: any = [];
   constructor(leadService: LeadService) {
-    let arrLeads: leadData[] = leadService.arrLeads;
-    console.log(arrLeads);
+    let arrLeads: leadData[] = leadService.getLeads;
     arrLeads.map((element) => {
       const row: any = [[], [], []];
       row[element.tableColumn].push(element);

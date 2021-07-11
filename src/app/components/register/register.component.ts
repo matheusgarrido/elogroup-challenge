@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Register } from 'src/app/controllers/register';
 import { FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';

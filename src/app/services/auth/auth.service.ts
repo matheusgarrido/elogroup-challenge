@@ -23,7 +23,7 @@ export class AuthService {
       JSON.stringify({ auth: isLoginValid, username: user })
     );
     this.userAuth = isLoginValid;
-    console.log(this.userAuth);
+    this.user = user;
   }
   get getAuthentication() {
     return this.userAuth;

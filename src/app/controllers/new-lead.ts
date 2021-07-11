@@ -47,7 +47,6 @@ export class NewLeadComponent {
   checkAllEvent() {
     let allChecked: boolean =
       this.VerifyChecks.length === this.opportunities.length;
-    console.log(allChecked);
     for (let i = 0; i < this.opportunities.length; i++) {
       this.form.value.opportunities[i] = !allChecked;
       let ckb = <HTMLInputElement>document.getElementById(`ckb${i}`);
@@ -72,7 +71,6 @@ export class NewLeadComponent {
     const opportunities: string[] = this.form.value.opportunities
       ?.map((checkbox: string, index: number): string => {
         if (checkbox) {
-          console.log(this.opportunities[index]);
           return this.opportunities[index];
         }
         return '';
