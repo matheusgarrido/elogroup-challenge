@@ -1,4 +1,5 @@
 import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
+import { LeadService, leadData } from '../services/lead/lead.service';
 
 export class NewLeadComponent {
   opportunities: string[] = [];
@@ -66,28 +67,44 @@ export class NewLeadComponent {
     return this.form.status === 'VALID' && this.VerifyChecks.length > 0;
   }
 
+  formattedFormValue() {
+    const { name, phone, email } = this.form.value;
+    const opportunities: string[] = this.form.value.opportunities
+      ?.map((checkbox: string, index: number): string => {
+        if (checkbox) {
+          console.log(this.opportunities[index]);
+          return this.opportunities[index];
+        }
+        return '';
+      })
+      .filter((opportunity: string) => opportunity !== '');
+    const formValue: leadData = {
+      name,
+      phone,
+      email,
+      opportunities,
+      tableColumn: 1,
+    };
+    return formValue;
+  }
+
+  saveMessage = '';
+  errorMessage = false;
   //Submit the form
-  submit() {
+  submit(leadService: LeadService) {
+    const formValue = this.formattedFormValue();
     if (this.validate) {
-      const { name, phone, email } = this.form.value;
-      const opportunities: string[] = this.form.value.opportunities
-        ?.map((checkbox: string, index: number): string => {
-          if (checkbox) {
-            console.log(this.opportunities[index]);
-            return this.opportunities[index];
-          }
-          return '';
-        })
-        .filter((opportunity: string) => opportunity !== '');
-      const formValue = {
-        name,
-        phone,
-        email,
-        opportunities,
-      };
-      alert(`Formulário a ser salvo: ${JSON.stringify(formValue)}`);
-      this.form.reset();
-      this.onChangeCheckAll(false);
+      const submitReturn = leadService.submit(formValue);
+      if (!submitReturn.error) {
+        this.form.reset();
+        this.onChangeCheckAll(false);
+      }
+      this.errorMessage = submitReturn.error;
+      this.saveMessage = submitReturn.message;
     }
+  }
+
+  formInput() {
+    this.saveMessage = '';
   }
 }

@@ -42,3 +42,13 @@ span.btn {
     margin-top: 10px;
   }
 }
+p {
+  margin: auto;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  font-size: 11px;
+  &.error {
+    color: red;
+  }
+}
