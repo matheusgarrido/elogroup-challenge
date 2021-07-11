@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class NewLeadComponent {
   constructor(private authService: AuthService) {
-    document.title = 'ELOGROUP | Novo Lead';
+    document.title = 'EloGroup | Novo Lead';
     this.authService.redirectIfNotAuth();
   }
 }

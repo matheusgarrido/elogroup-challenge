@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class ListComponent {
   constructor(private authService: AuthService) {
-    document.title = 'ELOGROUP | Painel de Leads';
+    document.title = 'EloGroup | Painel de Leads';
     this.authService.redirectIfNotAuth();
   }
 }

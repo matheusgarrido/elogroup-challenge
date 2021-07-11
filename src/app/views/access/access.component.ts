@@ -17,7 +17,7 @@ export class AccessComponent {
     private authService: AuthService,
     private registerService: RegisterService
   ) {
-    document.title = 'ELOGROUP | Registro';
+    document.title = 'EloGroup | Registro';
     this.authService.redirectIfAlreadyAuth();
   }
 
