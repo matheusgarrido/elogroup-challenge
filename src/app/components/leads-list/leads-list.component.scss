@@ -11,6 +11,11 @@ th {
   margin: auto;
   padding: 15px 0;
 }
+td {
+  &:hover {
+    cursor: move;
+  }
+}
 div.leadDiv {
   padding: 15px 15px;
   min-height: 1.8em;
