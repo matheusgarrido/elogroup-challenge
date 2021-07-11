@@ -1,9 +1,23 @@
 @import "../../../styles.scss";
+
 header > #logo-header {
   background-color: $primaryColor;
   color: white;
   padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
   & > img {
     width: 100px;
+    height: 10px;
+    margin: auto 0;
+  }
+}
+
+span#logout {
+  color: lightgray;
+  &:hover {
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
   }
 }

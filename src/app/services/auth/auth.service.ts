@@ -5,15 +5,26 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router) {}
-
   private userAuth = false;
 
+  constructor(private router: Router) {
+    const auth = localStorage.getItem('auth');
+    if (auth) this.userAuth = auth === 'true' ? true : false;
+    console.log(this.userAuth);
+  }
+
   authenticate(isLoginValid: boolean) {
+    localStorage.setItem('auth', `${isLoginValid}`);
     this.userAuth = isLoginValid;
+    console.log(this.userAuth);
   }
   get getAuthentication() {
     return this.userAuth;
+  }
+
+  logout() {
+    this.authenticate(false);
+    this.redirectIfNotAuth();
   }
 
   redirectIfNotAuth() {

@@ -1,5 +1,11 @@
 <header>
   <div id="logo-header">
     <img src="assets/logo-header.png" alt="ELOGROUP" />
+    <span
+      id="logout"
+      *ngIf="authService.getAuthentication"
+      (click)="authService.logout()"
+      >Sair</span
+    >
   </div>
 </header>
