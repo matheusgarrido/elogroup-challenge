@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'novo', component: NewLeadComponent },
   { path: 'registro', component: AccessComponent, data: { page: 'registro' } },
   { path: 'login', component: AccessComponent, data: { page: 'login' } },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
