@@ -1,0 +1,43 @@
+form {
+  & > div {
+    width: min-content;
+    margin: auto;
+    padding-top: 20px;
+  }
+}
+
+label {
+  margin: auto;
+  width: 100%;
+  & > mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    float: right;
+    margin-right: 5px;
+    user-select: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+input {
+  display: block;
+  margin-bottom: 20px;
+  width: 150px;
+}
+p {
+  font-size: 9px;
+  font-weight: bold;
+  color: red;
+  word-wrap: break-word;
+  margin-top: -10px;
+}
+span.btn {
+  margin: auto;
+}
+a {
+  text-align: center;
+  margin: 20px auto 0;
+  font-size: 12px;
+}

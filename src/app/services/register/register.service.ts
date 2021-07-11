@@ -39,6 +39,18 @@ export class RegisterService {
     }
     return false;
   }
+  verifyLoginAccess(user: string, password: string) {
+    if (this.allUser) {
+      return this.allUser.find(
+        (element) =>
+          element.username.toLowerCase() === user.toLowerCase() &&
+          element.password === password
+      )
+        ? true
+        : false;
+    }
+    return false;
+  }
   submit(validation: boolean, form: FormGroup) {
     const { username, password } = form.value;
     this.userRegister(username, password);

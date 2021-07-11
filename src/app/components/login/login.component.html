@@ -1,0 +1,43 @@
+<form
+  [formGroup]="form"
+  (submit)="loginController.submit(getRegisterService)"
+  (input)="loginController.inputForm()"
+>
+  <app-header></app-header>
+  <div>
+    <label>
+      Usuário *
+      <input type="text" formControlName="username" />
+    </label>
+    <label
+      title="A senha deve possuir ao menos 8 caracteres, contendo ao menos, um caracterespecial, um caracter numérico, um caracteralfanumérico."
+    >
+      Password *
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        (click)="loginController.seePassword()"
+      >
+        <ng-container *ngIf="loginController.isPasswordVisible; else invisible"
+          >remove_red_eye</ng-container
+        >
+        <ng-template #invisible>visibility_off</ng-template>
+      </mat-icon>
+      <input type="password" formControlName="password" id="password" />
+    </label>
+    <p *ngIf="loginController.userError">
+      Nome de usuário ou senha incorreto(s).
+    </p>
+  </div>
+  <span class="btn">
+    <button
+      mat-raised-button
+      color="primary"
+      id="btn-save"
+      [disabled]="!loginController.validate"
+    >
+      Login
+    </button>
+  </span>
+  <a routerLink="/registro"> Registrar-se </a>
+</form>

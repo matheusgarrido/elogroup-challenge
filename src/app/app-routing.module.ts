@@ -7,7 +7,8 @@ import { AccessComponent } from './views/access/access.component';
 const routes: Routes = [
   { path: '', component: ListComponent },
   { path: 'novo', component: NewLeadComponent },
-  { path: 'registro', component: AccessComponent },
+  { path: 'registro', component: AccessComponent, data: { page: 'registro' } },
+  { path: 'login', component: AccessComponent, data: { page: 'login' } },
 ];
 
 @NgModule({

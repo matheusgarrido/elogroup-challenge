@@ -39,7 +39,7 @@ export class AuthService {
 
   redirectIfNotAuth() {
     if (!this.getAuthentication) {
-      this.router.navigate(['registro']);
+      this.router.navigate(['login']);
     }
   }
   redirectIfAlreadyAuth() {

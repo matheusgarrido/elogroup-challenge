@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Register } from '../../controllers/register';
 import { RegisterService } from '../../services/register/register.service';
@@ -9,11 +11,14 @@ import { AuthService } from '../../services/auth/auth.service';
   templateUrl: './access.component.html',
   styleUrls: ['./access.component.scss'],
 })
-export class AccessComponent {
+export class AccessComponent implements OnInit {
+  page: string = '';
+
   registerController = new Register();
   form: FormGroup = this.registerController.getForm;
 
   constructor(
+    private activatedroute: ActivatedRoute,
     private authService: AuthService,
     private registerService: RegisterService
   ) {
@@ -23,5 +28,10 @@ export class AccessComponent {
 
   get getRegisterService() {
     return this.registerService;
+  }
+  ngOnInit() {
+    this.activatedroute.data.subscribe((data) => {
+      this.page = data.page;
+    });
   }
 }

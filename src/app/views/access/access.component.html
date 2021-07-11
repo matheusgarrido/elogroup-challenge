@@ -1,62 +1,10 @@
 <div id="container">
   <div></div>
-  <form
-    [formGroup]="form"
-    (submit)="registerController.submit(getRegisterService)"
-    (input)="registerController.inputForm()"
-  >
-    <app-header></app-header>
-    <div>
-      <label>
-        Usuário *
-        <input type="text" formControlName="username" />
-      </label>
-      <p *ngIf="registerController.userError">Usuário já existe</p>
-      <label
-        title="A senha deve possuir ao menos 8 caracteres, contendo ao menos, um caracterespecial, um caracter numérico, um caracteralfanumérico."
-      >
-        Password *
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          (click)="registerController.seePassword()"
-        >
-          <ng-container
-            *ngIf="registerController.isPasswordVisible; else invisible"
-            >remove_red_eye</ng-container
-          >
-          <ng-template #invisible>visibility_off</ng-template>
-        </mat-icon>
-        <input type="password" formControlName="password" id="password" />
-      </label>
-
-      <p *ngIf="registerController.errorPassword">
-        {{ registerController.errorPassword }}
-      </p>
-      <label
-        title="A senha deve possuir ao menos 8 caracteres, contendo ao menos, um caracterespecial, um caracter numérico, um caracteralfanumérico."
-      >
-        Confirmação Password *
-        <input
-          type="password"
-          formControlName="passwordConfirm"
-          id="passwordConfirm"
-        />
-      </label>
-      <p *ngIf="registerController.errorPasswordConfirm">
-        {{ registerController.errorPasswordConfirm }}
-      </p>
-    </div>
-    <span class="btn">
-      <button
-        mat-raised-button
-        color="primary"
-        id="btn-save"
-        [disabled]="!registerController.validate"
-      >
-        Registrar
-      </button>
-    </span>
-  </form>
+  <div id="formCard">
+    <app-register *ngIf="page === 'registro'; else login"></app-register>
+    <ng-template #login>
+      <app-login></app-login>
+    </ng-template>
+  </div>
   <div></div>
 </div>

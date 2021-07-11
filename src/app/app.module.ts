@@ -19,6 +19,8 @@ import { AccessComponent } from './views/access/access.component';
 import { CardLeadComponent } from './components/card-lead/card-lead.component';
 
 import { AuthService } from './services/auth/auth.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AuthService } from './services/auth/auth.service';
     LeadsListComponent,
     AccessComponent,
     CardLeadComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
